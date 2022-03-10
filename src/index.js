@@ -1,6 +1,13 @@
 import { getData } from './data-service'
 
-getData()
+const getCharacterData = async (id) => {
+  return await getData(`https://swapi.dev/api/people/${id}`);
+}
+
+// const createCharacter = async () => {
+//   const data = await getCharacterData(1);
+//   console.log(data)
+// }
 
 // class Character {
 //   constructor(name) {
