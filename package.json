@@ -1,0 +1,27 @@
+{
+  "name": "star-wars-trivia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blancaley/star-wars-characters.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blancaley/star-wars-characters/issues"
+  },
+  "homepage": "https://github.com/blancaley/star-wars-characters#readme",
+  "devDependencies": {
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "axios": "^0.26.1"
+  }
+}
