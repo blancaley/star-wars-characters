@@ -1,13 +1,9 @@
-const fetchData = async (url) => {
-  const response = await fetch(url);
-  const json = await response.json();
-  return json;
-}
+import axios from 'axios';
 
-const createCharacter = async () => {
-  const getData = await fetchData("https://swapi.dev/api/people");
-  console.log(getData);
-}
+axios.get("https://swapi.dev/api/people")
+  .then(response => {
+    console.log(response.data)
+  })
 
 // class Character {
 //   constructor(name) {
