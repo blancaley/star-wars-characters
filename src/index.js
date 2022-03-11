@@ -57,7 +57,17 @@ const createCharacterPair = async () => {
   return [character1, character2];
 }
 
-createCharacterPairBtn.addEventListener("click", (e) => {
+const drawCharacter = (character, container) => {
+  const characterCard = document.createElement("article");
+  characterCard.id = `${character.mainName}Card`;
+  
+  const header = document.createElement("h2");
+  header.innerText = character.mainName;
+  characterCard.appendChild(header);
+  container.appendChild(characterCard);
+}
+
+createCharacterPairBtn.addEventListener("click", async (e) => {
   e.preventDefault();
   createCharacterPair();
 })
