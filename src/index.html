@@ -11,8 +11,8 @@
     <h1>Star Wars Trivia</h1>
     <form>
       <div>
-        <label for="character1">Character 1</label>
-        <select name="character1" id="character1" required>
+        <label for="mainCharacter">Character 1</label>
+        <select name="mainCharacter" id="mainCharacter" required>
           <option value="" disabled selected>Select first character*</option>
           <option value="Luke Skywalker">Luke Skywalker</option>
           <option value="C-3PO">C-3PO</option>
@@ -25,8 +25,8 @@
         </select>
       </div>
       <div>
-        <label for="character2">Character 2</label>
-        <select name="character2" id="character2" required>
+        <label for="secondaryCharacter">Character 2</label>
+        <select name="secondaryCharacter" id="secondaryCharacter" required>
           <option value="" disabled selected>Select second character*</option>
           <option value="Luke Skywalker">Luke Skywalker</option>
           <option value="C-3PO">C-3PO</option>
@@ -38,6 +38,7 @@
           <option value="Owen Lars">Owen Lars</option>
         </select>
       </div>
+      <button id="createCharacterPairBtn">See characters</button>
     </form>
   </main>
   <script src="../dist/main.js"></script>
