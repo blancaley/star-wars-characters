@@ -11,7 +11,13 @@ const getCharacterByID = async (id) => {
 }
 
 const getAllCharacters = async () => {
+  // Check if we already have the data from API
+  if (Object.keys(globalCache).length > 0) {
+    return globalCache;
+  }
+  // Get data from API and save it in globalCache
   const allCharacters = await getData(`https://swapi.dev/api/people`);
+  globalCache = allCharacters.results;
   return allCharacters.results;
 }
 class Character {
