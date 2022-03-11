@@ -57,14 +57,33 @@ const createCharacterPair = async () => {
   return [character1, character2];
 }
 
+const drawCompareBtn = attribute => {
+  const button = document.createElement("button");
+  const formattedAttribute = attribute.split("_").join(" ");
+  button.innerText = `Compare ${formattedAttribute}`;
+  button.id = `compare_${attribute}`;
+  return button;
+}
+
 const drawCharacter = (character, container) => {
   const characterCard = document.createElement("article");
-  characterCard.id = `${character.mainName}Card`;
+  const formattedName = character.mainName.split(" ").join("_");
+  characterCard.id = `${formattedName}_Card`;
   
   const header = document.createElement("h2");
   header.innerText = character.mainName;
-  characterCard.appendChild(header);
-  container.appendChild(characterCard);
+
+  // Draw buttons
+  const buttonGroup = document.createElement("div");
+  buttonGroup.classList.add = "button-group";
+  const massBtn = drawCompareBtn("mass");
+  const heightBtn = drawCompareBtn("height");
+  const hairColorBtn = drawCompareBtn("hair_color");
+  const genderBtn = drawCompareBtn("gender");
+
+  buttonGroup.append(massBtn, heightBtn, hairColorBtn, genderBtn);
+  characterCard.append(header, buttonGroup);
+  container.append(characterCard);
 }
 
 createCharacterPairBtn.addEventListener("click", async (e) => {
