@@ -47,17 +47,14 @@ const createCharacter = (mainCharacter, secondaryCharacter, allCharacters) => {
 
 const createCharacterPair = async () => {
   // Get selected characters name
-  const characterOneName = document.getElementById("mainCharacter").value;
-  const characterTwoName = document.getElementById("secondaryCharacter").value;
-  
+  const character1Name = document.getElementById("mainCharacter").value;
+  const character2Name = document.getElementById("secondaryCharacter").value;
   // Get character data from API for selected names
   const allCharacters = await getAllCharacters();
-  const characterOne = allCharacters.find(char => char.name === characterOneName);
-  const characterTwo = allCharacters.find(char => char.name === characterTwoName);
+  const character1 = await createCharacter(character1Name, character2Name, allCharacters);
+  const character2 = await createCharacter(character2Name, character1Name, allCharacters);
 
-  // Create Character object. 
-  const characterOneObject = new Character(characterOne, characterTwo);
-  const characterTwoObject = new Character(characterTwo, characterOne);
+  return [character1, character2];
 }
 
 createCharacterPairBtn.addEventListener("click", (e) => {
