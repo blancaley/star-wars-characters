@@ -22,6 +22,13 @@ class Character {
     this.mainMass = mainCharacter.mass,
     this.mainHairColor = mainCharacter.hair_color,
     this.mainPicURL = "",
+
+    this.secondaryName = secondaryCharacter.name,
+    this.secondaryGender = secondaryCharacter.gender,
+    this.secondaryHeight = secondaryCharacter.height,
+    this.secondaryMass = secondaryCharacter.mass,
+    this.secondaryHairColor = secondaryCharacter.hair_color,
+    this.secondaryPicURL = ""
   }
 }
 
