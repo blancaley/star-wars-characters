@@ -1,7 +1,7 @@
 import { getData } from './data-service'
 
 // Variables
-const compareBtn = document.getElementById("compareBtn");
+const createCharacterPairBtn = document.getElementById("createCharacterPair");
 
 const getCharacterByID = async (id) => {
   if(!id) {
@@ -16,31 +16,31 @@ const getAllCharacters = async () => {
 }
 class Character {
   constructor(mainCharacter, secondaryCharacter) {
-    this.name = mainCharacter.name,
-    this.gender = mainCharacter.gender,
-    this.height = mainCharacter.height,
-    this.mass = mainCharacter.mass,
-    this.hairColor = mainCharacter.hair_color,
-    this.picURL = ""
+    this.mainName = mainCharacter.name,
+    this.mainGender = mainCharacter.gender,
+    this.mainHeight = mainCharacter.height,
+    this.mainMass = mainCharacter.mass,
+    this.mainHairColor = mainCharacter.hair_color,
+    this.mainPicURL = "",
   }
 }
 
-const createCharacter = async () => {
+const createCharacterPair = async () => {
   // Get selected characters name
-  const mainCharacterName = document.getElementById("mainCharacter").value;
-  const secondaryCharacterName = document.getElementById("secondaryCharacter").value;
+  const characterOneName = document.getElementById("mainCharacter").value;
+  const characterTwoName = document.getElementById("secondaryCharacter").value;
   
   // Get character data from API for selected names
   const allCharacters = await getAllCharacters();
-  const mainCharacter = allCharacters.find(char => char.name === mainCharacterName);
-  const secondaryCharacter = allCharacters.find(char => char.name === secondaryCharacterName);
+  const characterOne = allCharacters.find(char => char.name === characterOneName);
+  const characterTwo = allCharacters.find(char => char.name === characterTwoName);
 
   // Create Character object. 
-  const newCharacter = new Character(mainCharacter, secondaryCharacter);
-  return newCharacter;
+  const characterOneObject = new Character(characterOne, characterTwo);
+  const characterTwoObject = new Character(characterTwo, characterOne);
 }
 
-compareBtn.addEventListener("click", (e) => {
+createCharacterPairBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  createCharacter();
+  createCharacterPair();
 })
