@@ -69,5 +69,9 @@ const drawCharacter = (character, container) => {
 
 createCharacterPairBtn.addEventListener("click", async (e) => {
   e.preventDefault();
-  createCharacterPair();
+  const characterSection = document.getElementById("characterSection");
+  const characterPair = await createCharacterPair();
+  characterPair.forEach(char => {
+    drawCharacter(char, characterSection);
+  })
 })
