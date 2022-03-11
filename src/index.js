@@ -16,7 +16,7 @@ const getAllCharacters = async () => {
     return globalCache;
   }
   // Get data from API and save it in globalCache
-  const allCharacters = await getData(`https://swapi.dev/api/people`);
+  const allCharacters = await getData(`https://swapi.dev/api/people/?page=2`);
   globalCache = allCharacters.results;
   return allCharacters.results;
 }
@@ -36,6 +36,13 @@ class Character {
     this.secondaryHairColor = secondaryCharacter.hair_color,
     this.secondaryPicURL = ""
   }
+}
+
+const createCharacter = (mainCharacter, secondaryCharacter, allCharacters) => {
+  const mainCharacterObj = allCharacters.find(char => char.name === mainCharacter);
+  const secondaryCharacterObj = allCharacters.find(char => char.name === secondaryCharacter);
+  const newCharacter = new Character(mainCharacterObj, secondaryCharacterObj);
+  return newCharacter;
 }
 
 const createCharacterPair = async () => {
