@@ -1,7 +1,7 @@
 import { getData } from './data-service'
-
+let globalCache = {}
 // Variables
-const createCharacterPairBtn = document.getElementById("createCharacterPair");
+const createCharacterPairBtn = document.getElementById("createCharacterPairBtn");
 
 const getCharacterByID = async (id) => {
   if(!id) {
