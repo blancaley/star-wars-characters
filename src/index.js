@@ -194,7 +194,7 @@ const drawCompareBtn = attribute => {
   const button = document.createElement("button");
   const formattedAttribute = attribute.split("_").join(" ");
   button.innerText = `Compare ${formattedAttribute}`;
-  button.id = `compare_${attribute}`;
+  button.classList.add(`compare_${attribute}`);
   return button;
 }
 
@@ -203,19 +203,24 @@ const drawCharacter = (character, container) => {
   const formattedName = character.mainName.split(" ").join("_");
   characterCard.id = `${formattedName}_Card`;
   
+  // Header
   const header = document.createElement("h2");
   header.innerText = character.mainName;
 
-  // Draw buttons
+  // Image
+  const image = document.createElement("img")
+  image.src = `${character.mainPictureUrl}`
+
+  // Buttons
   const buttonGroup = document.createElement("div");
-  buttonGroup.classList.add = "button-group";
+  buttonGroup.classList.add("button-group");
   const massBtn = drawCompareBtn("mass");
   const heightBtn = drawCompareBtn("height");
   const hairColorBtn = drawCompareBtn("hair_color");
   const genderBtn = drawCompareBtn("gender");
 
   buttonGroup.append(massBtn, heightBtn, hairColorBtn, genderBtn);
-  characterCard.append(header, buttonGroup);
+  characterCard.append(header, image, buttonGroup);
   container.append(characterCard);
 
   setEventListeners(character, massBtn, heightBtn, hairColorBtn, genderBtn);
