@@ -70,7 +70,40 @@ class Character {
 
     console.log(`${factString} ${comparisonString}`)
   }
-  compareHeight() {}
+  compareHeight() {
+    // Write secondary character height. As well as if secondary character is longer, shorter or same as character and the difference in height.
+
+    // Destructure object
+    const { secondaryName, mainHeight, secondaryHeight } = this;
+
+    // Return if height is unknown
+    if(mainHeight === "unknown" || secondaryHeight === "unknown") {
+      console.log(`Sorry, I can't compare height.`)
+      return
+    }
+
+    const getComparative = (mainHeight, secondaryHeight) => {
+      if(secondaryHeight > mainHeight) return "is taller than";
+      if(secondaryHeight < mainHeight) return "is shorter than";
+      if(secondaryHeight === mainHeight) return "has same height as";
+    }
+
+    const calculateHeightDifference = (mainHeight, secondaryHeight) => {
+      const heightDifference = Math.abs(mainHeight - secondaryHeight);
+      return `by ${heightDifference} cm`;
+    }
+
+    const comparative = getComparative(mainHeight, secondaryHeight);
+    const heightDifferenceString = calculateHeightDifference(mainHeight, secondaryHeight);
+
+    const factString = 
+      `${secondaryName}'s height is ${secondaryHeight} cm.`
+    const comparisonString = `
+      ${secondaryName} ${comparative} me 
+      ${`${comparative}` === "same as" ? "" : `${heightDifferenceString}`}.`
+
+    console.log(`${factString} ${comparisonString}`)
+  }
   compareHairColor() {}
   compareGender() {}
 }
