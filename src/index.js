@@ -20,6 +20,32 @@ const getAllCharacters = async () => {
   globalCache = allCharacters.results;
   return allCharacters.results;
 }
+
+const images = [{
+  characterName: "Anakin Skywalker",
+  imgURL: "../assets/img/Anakin-Skywalker.png"
+}, {
+  characterName: "Wilhuff Tarkin",
+  imgURL: "../assets/img/Wilhuff-Tarkin.png"
+}, {
+  characterName: "Chewbacca",
+  imgURL: "../assets/img/Chewbacca.jpeg"
+}, {
+  characterName: "Han Solo",
+  imgURL: "../assets/img/Han-Solo.jpg"
+}, {
+  characterName: "Greedo",
+  imgURL: "../assets/img/Greedo.jpg"
+}, {
+  characterName: "Jabba Desilijic Tiure",
+  imgURL: "../assets/img/Jabba-Desilijic-Tiure.jpg"
+}, {
+  characterName: "Yoda",
+  imgURL: "../assets/img/Yoda.jpg"
+}, {
+  characterName: "Palpatine",
+  imgURL: "../assets/img/Palpatine.jpg"
+}]
 class Character {
   constructor(mainCharacter, secondaryCharacter) {
     this.mainName = mainCharacter.name,
