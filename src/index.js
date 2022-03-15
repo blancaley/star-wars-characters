@@ -104,7 +104,24 @@ class Character {
 
     console.log(`${factString} ${comparisonString}`)
   }
-  compareHairColor() {}
+  // Write secondary character hair color. Write if both have same color.
+  compareHairColor() {
+    // Destructure object
+    const { secondaryName, mainHairColor, secondaryHairColor } = this;
+
+    // Return if hair color is unknown
+    if(mainHairColor === "unknown" || secondaryHairColor === "unknown") {
+      console.log(`Sorry, I can't compare our hair color.`)
+      return
+    }
+
+    const factString = 
+      `${secondaryName}'s hair color is ${secondaryHairColor}.`
+    const comparisonString = `
+      ${secondaryHairColor === mainHairColor ? "We have same hair color." : ""}`
+
+    console.log(`${factString} ${comparisonString}`)
+  }
   compareGender() {}
 }
 
