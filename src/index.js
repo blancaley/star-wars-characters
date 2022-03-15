@@ -53,14 +53,18 @@ class Character {
     this.mainHeight = mainCharacter.height,
     this.mainMass = mainCharacter.mass,
     this.mainHairColor = mainCharacter.hair_color,
-    this.mainPicURL = "",
+    this.mainPictureUrl = this.getPictureURL(mainCharacter),
 
     this.secondaryName = secondaryCharacter.name,
     this.secondaryGender = secondaryCharacter.gender,
     this.secondaryHeight = secondaryCharacter.height,
     this.secondaryMass = secondaryCharacter.mass,
     this.secondaryHairColor = secondaryCharacter.hair_color,
-    this.secondaryPicURL = ""
+    this.secondaryPictureUrl = this.getPictureURL(secondaryCharacter)
+  }
+  getPictureURL(character) {
+    const foundChar = images.find(charInImages => charInImages.characterName === character.name);
+    return foundChar.imgURL;
   }
   compareMass() {
     // Write secondary character mass. As well as if secondary character weighs more/less/same as character and the difference in mass.
