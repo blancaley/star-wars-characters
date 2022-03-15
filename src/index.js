@@ -182,6 +182,9 @@ const setEventListeners = (character, massBtn, heightBtn, hairColorBtn, genderBt
   heightBtn.addEventListener("click", () => {
     character.compareHeight();
   })
+  hairColorBtn.addEventListener("click", () => {
+    character.compareHairColor();
+  })
 }
 
 createCharacterPairBtn.addEventListener("click", async (e) => {
