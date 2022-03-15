@@ -36,6 +36,43 @@ class Character {
     this.secondaryHairColor = secondaryCharacter.hair_color,
     this.secondaryPicURL = ""
   }
+  compareMass() {
+    // Write secondary character mass. As well as if secondary character weighs more/less/same as character and the difference in mass.
+
+    // Destructure object
+    const { secondaryName, mainMass, secondaryMass } = this;
+
+    // Return if mass is unknown
+    if(mainMass === "unknown" || secondaryMass === "unknown") {
+      console.log(`Sorry, I can't compare mass.`)
+      return
+    }
+
+    const getComparative = (mainMass, secondaryMass) => {
+      if(secondaryMass > mainMass) return "more than";
+      if(secondaryMass < mainMass) return "less than";
+      if(secondaryMass === mainMass) return "same as";
+    }
+
+    const calculateWeightDifference = (mainMass, secondaryMass) => {
+      const weightDifference = Math.abs(mainMass - secondaryMass);
+      return `by ${weightDifference} kg`;
+    }
+
+    const comparative = getComparative(mainMass, secondaryMass);
+    const weightDifferenceString = calculateWeightDifference(mainMass, secondaryMass);
+
+    const factString = 
+      `${secondaryName} weighs ${secondaryMass} kg.`
+    const comparisonString = `
+      ${secondaryName} weighs ${comparative} me 
+      ${`${comparative}` === "same as" ? "" : `${weightDifferenceString}`}.`
+
+    console.log(`${factString} ${comparisonString}`)
+  }
+  compareHeight() {}
+  compareHairColor() {}
+  compareGender() {}
 }
 
 const createCharacter = (mainCharacter, secondaryCharacter, allCharacters) => {
