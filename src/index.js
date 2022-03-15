@@ -121,6 +121,14 @@ const drawCharacter = (character, container) => {
   buttonGroup.append(massBtn, heightBtn, hairColorBtn, genderBtn);
   characterCard.append(header, buttonGroup);
   container.append(characterCard);
+
+  setEventListeners(character, massBtn, heightBtn, hairColorBtn, genderBtn);
+}
+
+const setEventListeners = (character, massBtn, heightBtn, hairColorBtn, genderBtn) => {
+  massBtn.addEventListener("click", () => {
+    character.compareMass();
+  })
 }
 
 createCharacterPairBtn.addEventListener("click", async (e) => {
