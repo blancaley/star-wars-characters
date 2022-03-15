@@ -122,7 +122,23 @@ class Character {
 
     console.log(`${factString} ${comparisonString}`)
   }
-  compareGender() {}
+  compareGender() {
+    // Destructure object
+    const { secondaryName, mainGender, secondaryGender } = this;
+
+    // Return if hair color is unknown
+    if(mainGender === "unknown" || secondaryGender === "unknown") {
+      console.log(`Sorry, I can't compare our gender.`)
+      return
+    }
+
+    const factString = 
+      `${secondaryName}'s is ${secondaryGender}.`
+    const comparisonString = `
+      ${secondaryGender === mainGender ? "We have same gender." : ""}`
+
+    console.log(`${factString} ${comparisonString}`)    
+  }
 }
 
 const createCharacter = (mainCharacter, secondaryCharacter, allCharacters) => {
