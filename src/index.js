@@ -174,6 +174,7 @@ const createCharacterPair = async () => {
   return [character1, character2];
 }
 
+// Renders
 const drawCompareBtn = attribute => {
   const button = document.createElement("button");
   const formattedAttribute = attribute.split("_").join(" ");
@@ -223,6 +224,7 @@ const drawCharacter = (character, container) => {
   setEventListeners(character, massBtn, heightBtn, hairColorBtn, genderBtn);
 }
 
+// Event Listeners
 const setEventListeners = (character, massBtn, heightBtn, hairColorBtn, genderBtn) => {
   massBtn.addEventListener("click", (e) => {
     const buttonGroup = e.target.parentElement;
@@ -253,4 +255,29 @@ createCharacterPairBtn.addEventListener("click", async (e) => {
   characterPair.forEach(char => {
     drawCharacter(char, characterSection);
   })
-})
+});
+
+const disableDuplicateCharacter = (e) => {
+  const selectedCharacter = e.target.value;
+  let selectInputID;
+  // For targeting the other input 
+  if(e.target.id === "mainCharacter") {
+    selectInputID = "secondaryCharacter";
+  } else {
+    selectInputID = "mainCharacter";
+  }
+  // Remove disable on all options to avoid ending up with many disabled  
+  // Select all options except the first one ("Select character")
+  const allCharacterOptions = document.querySelectorAll(`#${selectInputID}  option:not(:first-child)`)
+  allCharacterOptions.forEach(opt => {
+    opt.disabled = false;
+  }) 
+  // Disable only duplicate character
+  const duplicatedCharacter = document.querySelector(`#${selectInputID} [value="${selectedCharacter}"]`);
+  duplicatedCharacter.disabled = true;
+}
+
+const createCharactersForm = document.getElementById("createCharactersForm");
+createCharactersForm.addEventListener("change", (e) => {
+  disableDuplicateCharacter(e);
+});
