@@ -66,29 +66,23 @@ class Character {
     const foundChar = images.find(charInImages => charInImages.characterName === character.name);
     return foundChar.imgURL;
   }
+  // Write secondary character mass. As well as if secondary character weighs more/less/same as character and the difference in mass.
   compareMass() {
-    // Write secondary character mass. As well as if secondary character weighs more/less/same as character and the difference in mass.
-
     // Destructure object
     const { secondaryName, mainMass, secondaryMass } = this;
-
-    // Return if mass is unknown
+    // Return this message if mass is unknown
     if(mainMass === "unknown" || secondaryMass === "unknown") {
-      console.log(`Sorry, I can't compare mass.`)
-      return
+      return `Sorry, I can't compare mass.`
     }
-
     const getComparative = (mainMass, secondaryMass) => {
       if(secondaryMass > mainMass) return "more than";
       if(secondaryMass < mainMass) return "less than";
       if(secondaryMass === mainMass) return "same as";
     }
-
     const calculateWeightDifference = (mainMass, secondaryMass) => {
       const weightDifference = Math.abs(mainMass - secondaryMass);
       return `by ${weightDifference} kg`;
     }
-
     const comparative = getComparative(mainMass, secondaryMass);
     const weightDifferenceString = calculateWeightDifference(mainMass, secondaryMass);
 
@@ -98,31 +92,26 @@ class Character {
       ${secondaryName} weighs ${comparative} me 
       ${`${comparative}` === "same as" ? "" : `${weightDifferenceString}`}.`
 
-    console.log(`${factString} ${comparisonString}`)
+    return `${factString} ${comparisonString}`
   }
+  // Write secondary character height. As well as if secondary character is longer, shorter or same as character and the difference in height.
   compareHeight() {
-    // Write secondary character height. As well as if secondary character is longer, shorter or same as character and the difference in height.
-
     // Destructure object
     const { secondaryName, mainHeight, secondaryHeight } = this;
 
     // Return if height is unknown
     if(mainHeight === "unknown" || secondaryHeight === "unknown") {
-      console.log(`Sorry, I can't compare height.`)
-      return
+      return `Sorry, I can't compare height.`
     }
-
     const getComparative = (mainHeight, secondaryHeight) => {
       if(secondaryHeight > mainHeight) return "is taller than";
       if(secondaryHeight < mainHeight) return "is shorter than";
       if(secondaryHeight === mainHeight) return "has same height as";
     }
-
     const calculateHeightDifference = (mainHeight, secondaryHeight) => {
       const heightDifference = Math.abs(mainHeight - secondaryHeight);
       return `by ${heightDifference} cm`;
     }
-
     const comparative = getComparative(mainHeight, secondaryHeight);
     const heightDifferenceString = calculateHeightDifference(mainHeight, secondaryHeight);
 
@@ -132,7 +121,7 @@ class Character {
       ${secondaryName} ${comparative} me 
       ${`${comparative}` === "same as" ? "" : `${heightDifferenceString}`}.`
 
-    console.log(`${factString} ${comparisonString}`)
+    return `${factString} ${comparisonString}`
   }
   // Write secondary character hair color. Write if both have same color.
   compareHairColor() {
@@ -141,33 +130,28 @@ class Character {
 
     // Return if hair color is unknown
     if(mainHairColor === "unknown" || secondaryHairColor === "unknown") {
-      console.log(`Sorry, I can't compare our hair color.`)
-      return
+      return `Sorry, I can't compare our hair color.`
     }
-
     const factString = 
       `${secondaryName}'s hair color is ${secondaryHairColor}.`
     const comparisonString = `
       ${secondaryHairColor === mainHairColor ? "We have same hair color." : ""}`
 
-    console.log(`${factString} ${comparisonString}`)
+      return `${factString} ${comparisonString}`
   }
   compareGender() {
     // Destructure object
     const { secondaryName, mainGender, secondaryGender } = this;
-
     // Return if hair color is unknown
     if(mainGender === "unknown" || secondaryGender === "unknown") {
-      console.log(`Sorry, I can't compare our gender.`)
-      return
+      return `Sorry, I can't compare our gender.`
     }
-
     const factString = 
       `${secondaryName}'s is ${secondaryGender}.`
     const comparisonString = `
       ${secondaryGender === mainGender ? "We have same gender." : ""}`
 
-    console.log(`${factString} ${comparisonString}`)    
+      return `${factString} ${comparisonString}`    
   }
 }
 
