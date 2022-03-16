@@ -198,6 +198,19 @@ const drawCompareBtn = attribute => {
   return button;
 }
 
+const drawDialogBox = (msg, siblingElem) => {
+  const dialogBox = document.querySelector(".dialogBox");
+  if(dialogBox) {
+    dialogBox.remove();
+  }
+  const div = document.createElement("div");
+  const p = document.createElement("p");
+  div.classList.add("dialogBox");   
+  p.innerText = msg;
+  div.appendChild(p);
+  siblingElem.insertAdjacentElement("afterend", div);
+}
+
 const drawCharacter = (character, container) => {
   const characterCard = document.createElement("article");
   const formattedName = character.mainName.split(" ").join("_");
