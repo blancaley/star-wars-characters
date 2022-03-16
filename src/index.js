@@ -240,17 +240,25 @@ const drawCharacter = (character, container) => {
 }
 
 const setEventListeners = (character, massBtn, heightBtn, hairColorBtn, genderBtn) => {
-  massBtn.addEventListener("click", () => {
-    character.compareMass();
+  massBtn.addEventListener("click", (e) => {
+    const buttonGroup = e.target.parentElement;
+    const massMsg = character.compareMass();
+    drawDialogBox(massMsg, buttonGroup);
   })
-  heightBtn.addEventListener("click", () => {
-    character.compareHeight();
+  heightBtn.addEventListener("click", (e) => {
+    const buttonGroup = e.target.parentElement;
+    const heightMsg = character.compareHeight();
+    drawDialogBox(heightMsg, buttonGroup);
   })
-  hairColorBtn.addEventListener("click", () => {
-    character.compareHairColor();
+  hairColorBtn.addEventListener("click", (e) => {
+    const buttonGroup = e.target.parentElement;
+    const hairColorMsg = character.compareHairColor();
+    drawDialogBox(hairColorMsg, buttonGroup);
   })
-  genderBtn.addEventListener("click", () => {
-    character.compareGender();
+  genderBtn.addEventListener("click", (e) => {
+    const buttonGroup = e.target.parentElement;
+    const genderMsg = character.compareGender();
+    drawDialogBox(genderMsg, buttonGroup);
   })
 }
 
