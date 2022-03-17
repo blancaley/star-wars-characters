@@ -7,13 +7,14 @@
   <title>Star Wars Trivia</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <main>
+<body class="starry-night">
+  <main class="container">
     <h1>Star Wars Trivia</h1>
-    <form id="createCharactersForm">
+    <h2>Who do you want to compare?</h2>
+    <form class="create-characters-form" id="createCharactersForm">
       <div>
-        <label for="mainCharacter">Character 1</label>
-        <select name="mainCharacter" id="mainCharacter" required>
+        <label for="mainCharacter" class="screenreader-only">Character 1</label>
+        <select class="char-dropdown" name="mainCharacter" id="mainCharacter" required>
           <option value="" disabled selected>Select first character*</option>
           <option value="Anakin Skywalker">Anakin Skywalker</option>
           <option value="Wilhuff Tarkin">Wilhuff Tarkin</option>
@@ -26,8 +27,8 @@
         </select>
       </div>
       <div>
-        <label for="secondaryCharacter">Character 2</label>
-        <select name="secondaryCharacter" id="secondaryCharacter" required>
+        <label for="secondaryCharacter" class="screenreader-only">Character 2</label>
+        <select class="char-dropdown" name="secondaryCharacter" id="secondaryCharacter" required>
           <option value="" disabled selected>Select second character*</option>
           <option value="Anakin Skywalker">Anakin Skywalker</option>
           <option value="Wilhuff Tarkin">Wilhuff Tarkin</option>
@@ -39,7 +40,7 @@
           <option value="Palpatine">Palpatine</option>
         </select>
       </div>
-      <button id="createCharacterPairBtn">See characters</button>
+      <button id="createCharacterPairBtn">Compare</button>
     </form>
     <section id="characterSection">
     </section>
