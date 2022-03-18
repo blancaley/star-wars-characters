@@ -78,7 +78,7 @@ img {
 .container {
   padding: 1rem 2rem;
   position: relative;
-  max-width: 50rem;
+  max-width: 40rem;
   margin: auto;
   // backdrop-filter: blur(1px);
   // background: rgba(255, 255, 255, 0.17);
@@ -126,6 +126,9 @@ img {
     margin-bottom: 1rem;
     border: 2px white solid;
   }
+  h3, h4 {
+    text-align: left;
+  }
 }
 
 // Dropdown
@@ -158,9 +161,8 @@ img {
 // Compare buttons
 .button-group {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
-  justify-items: center;
+  grid-template-columns: repeat(2, minmax(60px, 1fr));
+  gap: 1rem;
 
   .compare {
     padding: 0.5rem;
@@ -170,6 +172,12 @@ img {
     font-size: .7rem;
     background-color: $light-blue;
     border: none;
+  }
+}
+
+@media (min-width: 50rem) {
+  .button-group { 
+    grid-template-columns: repeat(4, 1fr); 
   }
 }
 

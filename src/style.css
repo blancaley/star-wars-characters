@@ -70,7 +70,7 @@ img {
 .container {
   padding: 1rem 2rem;
   position: relative;
-  max-width: 50rem;
+  max-width: 40rem;
   margin: auto;
 }
 
@@ -113,6 +113,10 @@ img {
   border: 2px white solid;
 }
 
+.pair-container h3, .pair-container h4 {
+  text-align: left;
+}
+
 .char-dropdown {
   font-size: 1rem;
   padding: 1rem 16px;
@@ -142,10 +146,9 @@ img {
 .button-group {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
-  justify-items: center;
+  -ms-grid-columns: (minmax(60px, 1fr))[2];
+      grid-template-columns: repeat(2, minmax(60px, 1fr));
+  gap: 1rem;
 }
 
 .button-group .compare {
@@ -156,6 +159,13 @@ img {
   font-size: .7rem;
   background-color: #c8edfc;
   border: none;
+}
+
+@media (min-width: 50rem) {
+  .button-group {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .icon {

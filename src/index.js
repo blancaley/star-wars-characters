@@ -164,8 +164,8 @@ const createCharacterPair = async () => {
   
   // Get character data from API for selected names
   const allCharacters = await getAllCharacters();
-  const character1 = await createCharacter(character1Name, character2Name, allCharacters);
-  const character2 = await createCharacter(character2Name, character1Name, allCharacters);
+  //Execute both promises at the same time
+  const [character1, character2] = await Promise.all([createCharacter(character1Name, character2Name, allCharacters), createCharacter(character2Name, character1Name, allCharacters)])
 
   return [character1, character2];
 }
@@ -275,11 +275,16 @@ createCharacterPairBtn.addEventListener("click", async (e) => {
 
   const characterPair = await createCharacterPair();
   loader.classList.add("hidden");
-  
+
+  let names = characterPair.map(char => char.mainName).join(" vs ");
+
   characterPair.forEach(char => {
     drawCharacter(char, pairContainer);
     createCharactersForm.classList.add("hidden");
   })
+  const subheader = document.getElementById("subheader");
+  subheader.innerText = names;
+
   characterSection.appendChild(pairContainer);
 });
 
