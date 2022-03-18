@@ -245,17 +245,17 @@ const setEventListeners = (character, massBtn, heightBtn, hairColorBtn, genderBt
     drawDialogBox(massMsg, buttonGroup);
   })
   heightBtn.addEventListener("click", (e) => {
-    const buttonGroup = e.target.parentElement;
+    const buttonGroup = e.target.closest(".button-group");
     const heightMsg = character.compareHeight();
     drawDialogBox(heightMsg, buttonGroup);
   })
   hairColorBtn.addEventListener("click", (e) => {
-    const buttonGroup = e.target.parentElement;
+    const buttonGroup = e.target.closest(".button-group");
     const hairColorMsg = character.compareHairColor();
     drawDialogBox(hairColorMsg, buttonGroup);
   })
   genderBtn.addEventListener("click", (e) => {
-    const buttonGroup = e.target.parentElement;
+    const buttonGroup = e.target.closest(".button-group");
     const genderMsg = character.compareGender();
     drawDialogBox(genderMsg, buttonGroup);
   })
