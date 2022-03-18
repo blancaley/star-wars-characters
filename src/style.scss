@@ -38,13 +38,13 @@ p {
 // General style
 body {
   color: $base-color;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 900;
   line-height: 1;
   text-align: center;
@@ -60,6 +60,7 @@ h2,
 h3,
 h4,
 p {
+  margin-top: 0.5rem;
   margin-bottom: 1.5em;
 }
 
@@ -93,6 +94,17 @@ section {
   background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 
+// Form layout
+.create-characters-form {
+  margin-bottom: 2rem;
+}
+// Loader
+#loader {
+  text-align: center;
+}
+.loading-image {
+  margin: auto;
+}
 // Card layout
 #characterSection {
   display: grid;

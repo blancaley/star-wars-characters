@@ -167,11 +167,17 @@ const createCharacterPair = async () => {
   // Get selected characters name
   const character1Name = document.getElementById("mainCharacter").value;
   const character2Name = document.getElementById("secondaryCharacter").value;
+
+  //Loader
+  const loader = document.getElementById("loader");
+  loader.classList.remove("hidden");
+  
   // Get character data from API for selected names
   const allCharacters = await getAllCharacters();
   const character1 = await createCharacter(character1Name, character2Name, allCharacters);
   const character2 = await createCharacter(character2Name, character1Name, allCharacters);
 
+  loader.classList.add("hidden");
   return [character1, character2];
 }
 
@@ -180,7 +186,7 @@ const drawCompareBtn = attribute => {
   const button = document.createElement("button");
   const formattedAttribute = attribute.split("_").join(" ");
   button.innerText = `Compare ${formattedAttribute}`;
-  button.classList.add(`compare ${attribute}`);
+  button.classList.add("compare", `${attribute}`);
   return button;
 }
 
