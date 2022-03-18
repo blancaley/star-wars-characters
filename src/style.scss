@@ -13,6 +13,7 @@ body,
 h1,
 h2,
 h3,
+h4,
 p {
   margin: 0;
 }
@@ -41,7 +42,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 900;
   line-height: 1;
@@ -56,6 +58,7 @@ h1 {
 
 h2,
 h3,
+h4,
 p {
   margin-bottom: 1.5em;
 }
@@ -74,10 +77,11 @@ section {
   padding: 1rem 2rem;
   position: relative;
   height: calc(100vh - 2rem);
-  max-width: 800px;
+  max-width: 50rem;
   margin: auto;
 }
 
+// Main background
 .starry-night {
   background-color:black;
   background-image:
@@ -87,6 +91,22 @@ section {
   radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
   background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
   background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+// Card layout
+#characterSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+article img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 1rem;
+  border: 2px white solid;
 }
 
 // Dropdown

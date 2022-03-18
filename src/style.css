@@ -7,6 +7,7 @@ body,
 h1,
 h2,
 h3,
+h4,
 p {
   margin: 0;
 }
@@ -33,7 +34,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 900;
   line-height: 1;
@@ -48,6 +50,7 @@ h1 {
 
 h2,
 h3,
+h4,
 p {
   margin-bottom: 1.5em;
 }
@@ -66,7 +69,7 @@ section {
   padding: 1rem 2rem;
   position: relative;
   height: calc(100vh - 2rem);
-  max-width: 800px;
+  max-width: 50rem;
   margin: auto;
 }
 
@@ -75,6 +78,24 @@ section {
   background-image: radial-gradient(white, rgba(255, 255, 255, 0.2) 2px, transparent 40px), radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 30px), radial-gradient(white, rgba(255, 255, 255, 0.1) 2px, transparent 40px), radial-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1) 2px, transparent 30px);
   background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
   background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+#characterSection {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+article img {
+  display: block;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 1rem;
+  border: 2px white solid;
 }
 
 .char-dropdown {

@@ -180,7 +180,7 @@ const drawCompareBtn = attribute => {
   const button = document.createElement("button");
   const formattedAttribute = attribute.split("_").join(" ");
   button.innerText = `Compare ${formattedAttribute}`;
-  button.classList.add(`compare_${attribute}`);
+  button.classList.add(`compare ${attribute}`);
   return button;
 }
 
@@ -201,25 +201,27 @@ const drawCharacter = (character, container) => {
   const characterCard = document.createElement("article");
   const formattedName = character.mainName.split(" ").join("_");
   characterCard.id = `${formattedName}_Card`;
-  
-  // Header
-  const header = document.createElement("h2");
-  header.innerText = character.mainName;
 
   // Image
   const image = document.createElement("img")
   image.src = `${character.mainPictureUrl}`
 
+  // Header
+  const header = document.createElement("h3");
+  header.innerText = character.mainName;
+
   // Buttons
   const buttonGroup = document.createElement("div");
+  const compareHeader = document.createElement("h4");
+  compareHeader.innerText = "Compare";
   buttonGroup.classList.add("button-group");
   const massBtn = drawCompareBtn("mass");
   const heightBtn = drawCompareBtn("height");
   const hairColorBtn = drawCompareBtn("hair_color");
   const genderBtn = drawCompareBtn("gender");
 
-  buttonGroup.append(massBtn, heightBtn, hairColorBtn, genderBtn);
-  characterCard.append(header, image, buttonGroup);
+  buttonGroup.append(compareHeader, massBtn, heightBtn, hairColorBtn, genderBtn);
+  characterCard.append(image, header, buttonGroup);
   container.append(characterCard);
 
   setEventListeners(character, massBtn, heightBtn, hairColorBtn, genderBtn);
