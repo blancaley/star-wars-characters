@@ -184,9 +184,12 @@ const createCharacterPair = async () => {
 // Renders
 const drawCompareBtn = attribute => {
   const button = document.createElement("button");
-  const formattedAttribute = attribute.split("_").join(" ");
-  button.innerText = `Compare ${formattedAttribute}`;
+  const formattedTitle = attribute.split("_").join(" ");
+  const compareIcon = document.createElement("i");
+  compareIcon.classList.add("icon", `${attribute}`);
+  button.innerText = `${formattedTitle}`;
   button.classList.add("compare", `${attribute}`);
+  button.prepend(compareIcon);
   return button;
 }
 
@@ -216,18 +219,19 @@ const drawCharacter = (character, container) => {
   const header = document.createElement("h3");
   header.innerText = character.mainName;
 
-  // Buttons
-  const buttonGroup = document.createElement("div");
   const compareHeader = document.createElement("h4");
   compareHeader.innerText = "Compare";
+
+  // Buttons
+  const buttonGroup = document.createElement("div");
   buttonGroup.classList.add("button-group");
   const massBtn = drawCompareBtn("mass");
   const heightBtn = drawCompareBtn("height");
   const hairColorBtn = drawCompareBtn("hair_color");
   const genderBtn = drawCompareBtn("gender");
 
-  buttonGroup.append(compareHeader, massBtn, heightBtn, hairColorBtn, genderBtn);
-  characterCard.append(image, header, buttonGroup);
+  buttonGroup.append(massBtn, heightBtn, hairColorBtn, genderBtn);
+  characterCard.append(image, header, compareHeader, buttonGroup);
   container.append(characterCard);
 
   setEventListeners(character, massBtn, heightBtn, hairColorBtn, genderBtn);
@@ -236,7 +240,7 @@ const drawCharacter = (character, container) => {
 // Event Listeners
 const setEventListeners = (character, massBtn, heightBtn, hairColorBtn, genderBtn) => {
   massBtn.addEventListener("click", (e) => {
-    const buttonGroup = e.target.parentElement;
+    const buttonGroup = e.target.closest(".button-group");
     const massMsg = character.compareMass();
     drawDialogBox(massMsg, buttonGroup);
   })

@@ -1,5 +1,6 @@
 // Variables
 $base-color: #f5deb3;
+$light-blue: #c8edfc;
 $border-radius: 10px;
 
 // Fonts
@@ -146,4 +147,41 @@ article img {
   font-size: 1.3rem;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+// Compare buttons
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  justify-items: center;
+
+  .compare {
+    padding: 0.5rem;
+    aspect-ratio: 1/1;
+    max-width: 90px;
+    text-transform: uppercase;
+    font-size: .7rem;
+    background-color: $light-blue;
+    border: none;
+  }
+}
+
+.icon {
+  display: block;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+
+  &.mass {
+    background: no-repeat center url(../assets/icons/mass.svg);
+  }
+  &.height {
+    background: no-repeat center url(../assets/icons/height.svg);
+  }
+  &.hair_color {
+    background: no-repeat center url(../assets/icons/hair.svg);
+  }
+  &.gender {
+    background: no-repeat center url(../assets/icons/gender.svg);
+  }
 }
