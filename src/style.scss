@@ -17,6 +17,23 @@ p {
   margin: 0;
 }
 
+// Utilities
+.screenreader-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hidden {
+  display: none;
+}
+
 // General style
 body {
   color: $base-color;
@@ -61,18 +78,6 @@ section {
   margin: auto;
 }
 
-.screenreader-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 .starry-night {
   background-color:black;
   background-image:
@@ -94,7 +99,7 @@ section {
 }
 
 // Button
-button {
+.main-button {
   display: block;
   padding: 1rem;
   margin: .5rem 0;

@@ -2,6 +2,7 @@ import { getData } from './data-service'
 let globalCache = {}
 // Variables
 const createCharacterPairBtn = document.getElementById("createCharacterPairBtn");
+const createCharactersForm = document.getElementById("createCharactersForm");
 
 const getCharacterByID = async (id) => {
   if(!id) {
@@ -254,7 +255,9 @@ createCharacterPairBtn.addEventListener("click", async (e) => {
   const characterPair = await createCharacterPair();
   characterPair.forEach(char => {
     drawCharacter(char, characterSection);
+    createCharactersForm.classList.add("hidden");
   })
+
 });
 
 const disableDuplicateCharacter = (e) => {
@@ -277,7 +280,6 @@ const disableDuplicateCharacter = (e) => {
   duplicatedCharacter.disabled = true;
 }
 
-const createCharactersForm = document.getElementById("createCharactersForm");
 createCharactersForm.addEventListener("change", (e) => {
   disableDuplicateCharacter(e);
 });

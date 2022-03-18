@@ -11,6 +11,22 @@ p {
   margin: 0;
 }
 
+.screenreader-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hidden {
+  display: none;
+}
+
 body {
   color: #f5deb3;
 }
@@ -54,18 +70,6 @@ section {
   margin: auto;
 }
 
-.screenreader-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 .starry-night {
   background-color: black;
   background-image: radial-gradient(white, rgba(255, 255, 255, 0.2) 2px, transparent 40px), radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 30px), radial-gradient(white, rgba(255, 255, 255, 0.1) 2px, transparent 40px), radial-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1) 2px, transparent 30px);
@@ -81,7 +85,7 @@ section {
   margin: 0.5rem 0;
 }
 
-button {
+.main-button {
   display: block;
   padding: 1rem;
   margin: .5rem 0;
