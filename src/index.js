@@ -89,9 +89,7 @@ class Character {
 
     const factString = 
       `${secondaryName} weighs ${secondaryMass} kg.`
-    const comparisonString = `
-      ${secondaryName} weighs ${comparative} me 
-      ${`${comparative}` === "same as" ? "" : `${weightDifferenceString}`}.`
+    const comparisonString = `${secondaryName} weighs ${comparative} me ${`${comparative}` === "same as" ? "" : `${weightDifferenceString}`}.`
 
     return `${factString} ${comparisonString}`
   }
@@ -118,9 +116,7 @@ class Character {
 
     const factString = 
       `${secondaryName}'s height is ${secondaryHeight} cm.`
-    const comparisonString = `
-      ${secondaryName} ${comparative} me 
-      ${`${comparative}` === "same as" ? "" : `${heightDifferenceString}`}.`
+    const comparisonString = `${secondaryName} ${comparative} me ${`${comparative}` === "same height as" ? "" : `${heightDifferenceString}`}.`
 
     return `${factString} ${comparisonString}`
   }
@@ -135,8 +131,7 @@ class Character {
     }
     const factString = 
       `${secondaryName}'s hair color is ${secondaryHairColor}.`
-    const comparisonString = `
-      ${secondaryHairColor === mainHairColor ? "We have same hair color." : ""}`
+    const comparisonString = `${secondaryHairColor === mainHairColor ? "We have same hair color." : ""}`
 
       return `${factString} ${comparisonString}`
   }
@@ -149,8 +144,7 @@ class Character {
     }
     const factString = 
       `${secondaryName}'s is ${secondaryGender}.`
-    const comparisonString = `
-      ${secondaryGender === mainGender ? "We have same gender." : ""}`
+    const comparisonString = `${secondaryGender === mainGender ? "We have same gender." : ""}`
 
       return `${factString} ${comparisonString}`    
   }
@@ -193,17 +187,30 @@ const drawCompareBtn = attribute => {
   return button;
 }
 
-const drawDialogBox = (msg, siblingElem) => {
-  const dialogBox = document.querySelector(".dialogBox");
+const drawDialogBox = (msg, character, container) => {
+  const dialogBox = document.querySelector(".dialog-box");
   if(dialogBox) {
     dialogBox.remove();
   }
-  const div = document.createElement("div");
+  const section = document.createElement("section");
+  section.classList.add("dialog-box");   
+
+  const imgContainer = document.createElement("div")
+  imgContainer.classList.add("img-container"); 
+
+  const dialogImage = document.createElement("img")
+  dialogImage.src = `${character.mainPictureUrl}`
+
+  const msgContainer = document.createElement("div");
+  msgContainer.classList.add("msgContainer");
+
   const p = document.createElement("p");
-  div.classList.add("dialogBox");   
   p.innerText = msg;
-  div.appendChild(p);
-  siblingElem.insertAdjacentElement("afterend", div);
+
+  imgContainer.append(dialogImage);
+  msgContainer.append(p);
+  section.append(imgContainer, msgContainer);
+  container.appendChild(section);
 }
 
 const drawCharacter = (character, container) => {
@@ -240,36 +247,39 @@ const drawCharacter = (character, container) => {
 // Event Listeners
 const setEventListeners = (character, massBtn, heightBtn, hairColorBtn, genderBtn) => {
   massBtn.addEventListener("click", (e) => {
-    const buttonGroup = e.target.closest(".button-group");
+    const characterSection = e.target.closest("#characterSection");
     const massMsg = character.compareMass();
-    drawDialogBox(massMsg, buttonGroup);
+    drawDialogBox(massMsg, character, characterSection);
   })
   heightBtn.addEventListener("click", (e) => {
-    const buttonGroup = e.target.closest(".button-group");
+    const characterSection = e.target.closest("#characterSection");
     const heightMsg = character.compareHeight();
-    drawDialogBox(heightMsg, buttonGroup);
+    drawDialogBox(heightMsg, character, characterSection);
   })
   hairColorBtn.addEventListener("click", (e) => {
-    const buttonGroup = e.target.closest(".button-group");
+    const characterSection = e.target.closest("#characterSection");
     const hairColorMsg = character.compareHairColor();
-    drawDialogBox(hairColorMsg, buttonGroup);
+    drawDialogBox(hairColorMsg, character, characterSection);
   })
   genderBtn.addEventListener("click", (e) => {
-    const buttonGroup = e.target.closest(".button-group");
+    const characterSection = e.target.closest("#characterSection");
     const genderMsg = character.compareGender();
-    drawDialogBox(genderMsg, buttonGroup);
+    drawDialogBox(genderMsg, character, characterSection);
   })
 }
 
 createCharacterPairBtn.addEventListener("click", async (e) => {
   e.preventDefault();
   const characterSection = document.getElementById("characterSection");
+  const pairContainer = document.createElement("div");
+  pairContainer.classList.add("pair-container");
+
   const characterPair = await createCharacterPair();
   characterPair.forEach(char => {
-    drawCharacter(char, characterSection);
+    drawCharacter(char, pairContainer);
     createCharactersForm.classList.add("hidden");
   })
-
+  characterSection.appendChild(pairContainer);
 });
 
 const disableDuplicateCharacter = (e) => {

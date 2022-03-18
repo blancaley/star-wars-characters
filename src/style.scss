@@ -65,22 +65,24 @@ p {
   margin-bottom: 1.5em;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
 header,
 section {
-  padding: 4rem 0;
+  margin: 2rem 0;
+}
+
+img {
+  display: block;
+  object-fit: cover;
 }
 
 .container {
   padding: 1rem 2rem;
   position: relative;
-  height: calc(100vh - 2rem);
   max-width: 50rem;
   margin: auto;
+  // backdrop-filter: blur(1px);
+  // background: rgba(255, 255, 255, 0.17);
+  // border: 2px solid;
 }
 
 // Main background
@@ -98,28 +100,32 @@ section {
 // Form layout
 .create-characters-form {
   margin-bottom: 2rem;
+  height: calc(100vh - 24rem);
 }
 // Loader
 #loader {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
   text-align: center;
 }
 .loading-image {
   margin: auto;
 }
+
 // Card layout
-#characterSection {
+.pair-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-}
 
-article img {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-  aspect-ratio: 3 / 4;
-  margin-bottom: 1rem;
-  border: 2px white solid;
+  img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    margin-bottom: 1rem;
+    border: 2px white solid;
+  }
 }
 
 // Dropdown
@@ -183,5 +189,65 @@ article img {
   }
   &.gender {
     background: no-repeat center url(../assets/icons/gender.svg);
+  }
+}
+
+// Dialog box
+.dialog-box {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: #e0e4e8;
+  margin-bottom: 0;
+  border-radius: $border-radius $border-radius 0 0;
+
+  .img-container {
+    flex: 1;
+    max-width: 6rem;
+  }
+  img {
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1;
+  }
+  .msgContainer {
+    flex: 3;
+    align-self: stretch;
+    position: relative;
+    padding: 1rem;
+    border: 1px black solid;
+    border-radius: $border-radius;
+    background-color: white;
+    color: #000;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+
+    // For arrow
+    &:after, &:before {
+      right: 100%;
+      top: 50%;
+      border: solid transparent;
+      content: "";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+    &:after {
+      border-color: rgba(255, 255, 255, 0);
+      border-right-color: #ffffff;
+      border-width: 15px;
+      margin-top: -15px;
+    }
+    &:before {
+      border-color: rgba(0, 0, 0, 0);
+      border-right-color: #000000;
+      border-width: 16px;
+      margin-top: -16px;
+    }
+
+    p {
+      margin: 0;
+    }
   }
 }

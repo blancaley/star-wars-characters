@@ -56,20 +56,20 @@ p {
   margin-bottom: 1.5em;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
 header,
 section {
-  padding: 4rem 0;
+  margin: 2rem 0;
+}
+
+img {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .container {
   padding: 1rem 2rem;
   position: relative;
-  height: calc(100vh - 2rem);
   max-width: 50rem;
   margin: auto;
 }
@@ -83,9 +83,14 @@ section {
 
 .create-characters-form {
   margin-bottom: 2rem;
+  height: calc(100vh - 24rem);
 }
 
 #loader {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
   text-align: center;
 }
 
@@ -93,7 +98,7 @@ section {
   margin: auto;
 }
 
-#characterSection {
+.pair-container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
@@ -101,11 +106,8 @@ section {
   gap: 2rem;
 }
 
-article img {
-  display: block;
+.pair-container img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
   aspect-ratio: 3 / 4;
   margin-bottom: 1rem;
   border: 2px white solid;
@@ -176,5 +178,75 @@ article img {
 
 .icon.gender {
   background: no-repeat center url(../assets/icons/gender.svg);
+}
+
+.dialog-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: #e0e4e8;
+  margin-bottom: 0;
+  border-radius: 10px 10px 0 0;
+}
+
+.dialog-box .img-container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.dialog-box img {
+  border-radius: 50%;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.dialog-box .msgContainer {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+  position: relative;
+  padding: 1rem;
+  border: 1px black solid;
+  border-radius: 10px;
+  background-color: white;
+  color: #000;
+}
+
+.dialog-box .msgContainer:after, .dialog-box .msgContainer:before {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.dialog-box .msgContainer:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-right-color: #ffffff;
+  border-width: 15px;
+  margin-top: -15px;
+}
+
+.dialog-box .msgContainer:before {
+  border-color: rgba(0, 0, 0, 0);
+  border-right-color: #000000;
+  border-width: 16px;
+  margin-top: -16px;
+}
+
+.dialog-box .msgContainer p {
+  margin: 0;
 }
 /*# sourceMappingURL=style.css.map */
