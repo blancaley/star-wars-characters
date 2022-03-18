@@ -220,7 +220,7 @@ img {
     border-radius: $border-radius;
     background-color: white;
     color: #000;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 
     // For arrow
     &:after, &:before {
